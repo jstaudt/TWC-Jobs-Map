@@ -1,2 +1,35 @@
-// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+$primary : black;
+
+body {
+    color:$primary;
+    
+}
+.hero-unit{
+    background-image: url('../../work.jpg');
+    background-size:cover;
+    position:relative;
+    height:80vh;
+}
+
+.hero-header{
+    position:absolute;
+    top:50%;
+    text-align:center;
+    width:100%;
+    color:#fff;
+    font-size:36px;
+    -ms-transform: translate(0,-50%); /* IE 9 */
+    -webkit-transform: translate(0,-50%); /* Safari */
+    transform: translate(0,-50%);  
+}
+
+.glyphicon {
+    font-size: 50px;
+}
+.thumbnail {
+    width: 150px; 
+    height: 160px;
+    display:inline-flex;
+}

@@ -1,0 +1,417 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/nodejs',
+1 verbose cli   '/usr/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '-g',
+1 verbose cli   'minimatch@3.0.2' ]
+2 info using npm@3.8.6
+3 info using node@v5.12.0
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readGlobalPackageData
+7 silly fetchPackageMetaData minimatch@3.0.2
+8 silly fetchNamedPackageData minimatch
+9 silly mapToRegistry name minimatch
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry data Result {
+12 silly mapToRegistry   raw: 'minimatch',
+12 silly mapToRegistry   scope: null,
+12 silly mapToRegistry   name: 'minimatch',
+12 silly mapToRegistry   rawSpec: '',
+12 silly mapToRegistry   spec: 'latest',
+12 silly mapToRegistry   type: 'tag' }
+13 silly mapToRegistry uri https://registry.npmjs.org/minimatch
+14 verbose request uri https://registry.npmjs.org/minimatch
+15 verbose request no auth needed
+16 info attempt registry request try #1 at 3:46:59 AM
+17 verbose request id 89a7cbc480192422
+18 verbose etag "8VUUHOJJAI6MPAUAJJZR5FC1M"
+19 http request GET https://registry.npmjs.org/minimatch
+20 http 304 https://registry.npmjs.org/minimatch
+21 verbose headers { date: 'Sat, 12 Nov 2016 03:51:07 GMT',
+21 verbose headers   via: '1.1 varnish',
+21 verbose headers   'cache-control': 'max-age=300',
+21 verbose headers   etag: '"8VUUHOJJAI6MPAUAJJZR5FC1M"',
+21 verbose headers   age: '18',
+21 verbose headers   connection: 'keep-alive',
+21 verbose headers   'x-served-by': 'cache-dfw1833-DFW',
+21 verbose headers   'x-cache': 'HIT',
+21 verbose headers   'x-cache-hits': '1',
+21 verbose headers   'x-timer': 'S1478922667.001668,VS0,VE0',
+21 verbose headers   vary: 'Accept-Encoding' }
+22 silly get cb [ 304,
+22 silly get   { date: 'Sat, 12 Nov 2016 03:51:07 GMT',
+22 silly get     via: '1.1 varnish',
+22 silly get     'cache-control': 'max-age=300',
+22 silly get     etag: '"8VUUHOJJAI6MPAUAJJZR5FC1M"',
+22 silly get     age: '18',
+22 silly get     connection: 'keep-alive',
+22 silly get     'x-served-by': 'cache-dfw1833-DFW',
+22 silly get     'x-cache': 'HIT',
+22 silly get     'x-cache-hits': '1',
+22 silly get     'x-timer': 'S1478922667.001668,VS0,VE0',
+22 silly get     vary: 'Accept-Encoding' } ]
+23 verbose etag https://registry.npmjs.org/minimatch from cache
+24 verbose get saving minimatch to /home/vagrant/.npm/registry.npmjs.org/minimatch/.cache.json
+25 verbose correctMkdir /home/vagrant/.npm correctMkdir not in flight; initializing
+26 silly install normalizeTree
+27 silly loadCurrentTree Finishing
+28 silly loadIdealTree Starting
+29 silly install loadIdealTree
+30 silly cloneCurrentTree Starting
+31 silly install cloneCurrentTreeToIdealTree
+32 silly cloneCurrentTree Finishing
+33 silly loadShrinkwrap Starting
+34 silly install loadShrinkwrap
+35 silly loadShrinkwrap Finishing
+36 silly loadAllDepsIntoIdealTree Starting
+37 silly install loadAllDepsIntoIdealTree
+38 silly resolveWithNewModule minimatch@3.0.2 checking installable status
+39 silly cache add args [ 'minimatch@3.0.2', null ]
+40 verbose cache add spec minimatch@3.0.2
+41 silly cache add parsed spec Result {
+41 silly cache add   raw: 'minimatch@3.0.2',
+41 silly cache add   scope: null,
+41 silly cache add   name: 'minimatch',
+41 silly cache add   rawSpec: '3.0.2',
+41 silly cache add   spec: '3.0.2',
+41 silly cache add   type: 'version' }
+42 silly addNamed minimatch@3.0.2
+43 verbose addNamed "3.0.2" is a plain semver version for minimatch
+44 silly mapToRegistry name minimatch
+45 silly mapToRegistry using default registry
+46 silly mapToRegistry registry https://registry.npmjs.org/
+47 silly mapToRegistry data Result {
+47 silly mapToRegistry   raw: 'minimatch',
+47 silly mapToRegistry   scope: null,
+47 silly mapToRegistry   name: 'minimatch',
+47 silly mapToRegistry   rawSpec: '',
+47 silly mapToRegistry   spec: 'latest',
+47 silly mapToRegistry   type: 'tag' }
+48 silly mapToRegistry uri https://registry.npmjs.org/minimatch
+49 verbose addNameVersion registry:https://registry.npmjs.org/minimatch not in flight; fetching
+50 verbose get https://registry.npmjs.org/minimatch not expired, no request
+51 silly mapToRegistry name minimatch
+52 silly mapToRegistry using default registry
+53 silly mapToRegistry registry https://registry.npmjs.org/
+54 silly mapToRegistry data Result {
+54 silly mapToRegistry   raw: 'minimatch',
+54 silly mapToRegistry   scope: null,
+54 silly mapToRegistry   name: 'minimatch',
+54 silly mapToRegistry   rawSpec: '',
+54 silly mapToRegistry   spec: 'latest',
+54 silly mapToRegistry   type: 'tag' }
+55 silly mapToRegistry uri https://registry.npmjs.org/minimatch
+56 verbose addRemoteTarball https://registry.npmjs.org/minimatch/-/minimatch-3.0.2.tgz not in flight; adding
+57 verbose addRemoteTarball [ 'https://registry.npmjs.org/minimatch/-/minimatch-3.0.2.tgz',
+57 verbose addRemoteTarball   '0f398a7300ea441e9c348c83d98ab8c9dbf9c40a' ]
+58 info retry fetch attempt 1 at 3:46:59 AM
+59 info attempt registry request try #1 at 3:46:59 AM
+60 http fetch GET https://registry.npmjs.org/minimatch/-/minimatch-3.0.2.tgz
+61 http fetch 200 https://registry.npmjs.org/minimatch/-/minimatch-3.0.2.tgz
+62 silly fetchAndShaCheck shasum 0f398a7300ea441e9c348c83d98ab8c9dbf9c40a
+63 verbose addTmpTarball /tmp/npm-2588-d0e515c2/registry.npmjs.org/minimatch/-/minimatch-3.0.2.tgz not in flight; adding
+64 verbose addTmpTarball already have metadata; skipping unpack for minimatch@3.0.2
+65 verbose correctMkdir /home/vagrant/.npm correctMkdir not in flight; initializing
+66 silly cache afterAdd minimatch@3.0.2
+67 verbose afterAdd /home/vagrant/.npm/minimatch/3.0.2/package/package.json not in flight; writing
+68 verbose correctMkdir /home/vagrant/.npm correctMkdir not in flight; initializing
+69 verbose afterAdd /home/vagrant/.npm/minimatch/3.0.2/package/package.json written
+70 silly fetchNamedPackageData brace-expansion
+71 silly mapToRegistry name brace-expansion
+72 silly mapToRegistry using default registry
+73 silly mapToRegistry registry https://registry.npmjs.org/
+74 silly mapToRegistry data Result {
+74 silly mapToRegistry   raw: 'brace-expansion',
+74 silly mapToRegistry   scope: null,
+74 silly mapToRegistry   name: 'brace-expansion',
+74 silly mapToRegistry   rawSpec: '',
+74 silly mapToRegistry   spec: 'latest',
+74 silly mapToRegistry   type: 'tag' }
+75 silly mapToRegistry uri https://registry.npmjs.org/brace-expansion
+76 verbose request uri https://registry.npmjs.org/brace-expansion
+77 verbose request no auth needed
+78 info attempt registry request try #1 at 3:46:59 AM
+79 verbose etag "3699T8MMHGC0BN3ABJRKLHJ4W"
+80 http request GET https://registry.npmjs.org/brace-expansion
+81 http 304 https://registry.npmjs.org/brace-expansion
+82 verbose headers { date: 'Sat, 12 Nov 2016 03:51:07 GMT',
+82 verbose headers   via: '1.1 varnish',
+82 verbose headers   'cache-control': 'max-age=300',
+82 verbose headers   etag: '"3699T8MMHGC0BN3ABJRKLHJ4W"',
+82 verbose headers   age: '173',
+82 verbose headers   connection: 'keep-alive',
+82 verbose headers   'x-served-by': 'cache-dfw1833-DFW',
+82 verbose headers   'x-cache': 'HIT',
+82 verbose headers   'x-cache-hits': '2',
+82 verbose headers   'x-timer': 'S1478922667.172596,VS0,VE0',
+82 verbose headers   vary: 'Accept-Encoding' }
+83 silly get cb [ 304,
+83 silly get   { date: 'Sat, 12 Nov 2016 03:51:07 GMT',
+83 silly get     via: '1.1 varnish',
+83 silly get     'cache-control': 'max-age=300',
+83 silly get     etag: '"3699T8MMHGC0BN3ABJRKLHJ4W"',
+83 silly get     age: '173',
+83 silly get     connection: 'keep-alive',
+83 silly get     'x-served-by': 'cache-dfw1833-DFW',
+83 silly get     'x-cache': 'HIT',
+83 silly get     'x-cache-hits': '2',
+83 silly get     'x-timer': 'S1478922667.172596,VS0,VE0',
+83 silly get     vary: 'Accept-Encoding' } ]
+84 verbose etag https://registry.npmjs.org/brace-expansion from cache
+85 verbose get saving brace-expansion to /home/vagrant/.npm/registry.npmjs.org/brace-expansion/.cache.json
+86 verbose correctMkdir /home/vagrant/.npm correctMkdir not in flight; initializing
+87 silly resolveWithNewModule brace-expansion@1.1.6 checking installable status
+88 silly cache add args [ 'brace-expansion@^1.0.0', null ]
+89 verbose cache add spec brace-expansion@^1.0.0
+90 silly cache add parsed spec Result {
+90 silly cache add   raw: 'brace-expansion@^1.0.0',
+90 silly cache add   scope: null,
+90 silly cache add   name: 'brace-expansion',
+90 silly cache add   rawSpec: '^1.0.0',
+90 silly cache add   spec: '>=1.0.0 <2.0.0',
+90 silly cache add   type: 'range' }
+91 silly addNamed brace-expansion@>=1.0.0 <2.0.0
+92 verbose addNamed ">=1.0.0 <2.0.0" is a valid semver range for brace-expansion
+93 silly addNameRange { name: 'brace-expansion',
+93 silly addNameRange   range: '>=1.0.0 <2.0.0',
+93 silly addNameRange   hasData: false }
+94 silly mapToRegistry name brace-expansion
+95 silly mapToRegistry using default registry
+96 silly mapToRegistry registry https://registry.npmjs.org/
+97 silly mapToRegistry data Result {
+97 silly mapToRegistry   raw: 'brace-expansion',
+97 silly mapToRegistry   scope: null,
+97 silly mapToRegistry   name: 'brace-expansion',
+97 silly mapToRegistry   rawSpec: '',
+97 silly mapToRegistry   spec: 'latest',
+97 silly mapToRegistry   type: 'tag' }
+98 silly mapToRegistry uri https://registry.npmjs.org/brace-expansion
+99 verbose addNameRange registry:https://registry.npmjs.org/brace-expansion not in flight; fetching
+100 verbose get https://registry.npmjs.org/brace-expansion not expired, no request
+101 silly addNameRange number 2 { name: 'brace-expansion',
+101 silly addNameRange   range: '>=1.0.0 <2.0.0',
+101 silly addNameRange   hasData: true }
+102 silly addNameRange versions [ 'brace-expansion',
+102 silly addNameRange   [ '0.0.0',
+102 silly addNameRange     '1.0.0',
+102 silly addNameRange     '1.0.1',
+102 silly addNameRange     '1.1.0',
+102 silly addNameRange     '1.1.1',
+102 silly addNameRange     '1.1.2',
+102 silly addNameRange     '1.1.3',
+102 silly addNameRange     '1.1.4',
+102 silly addNameRange     '1.1.5',
+102 silly addNameRange     '1.1.6' ] ]
+103 silly addNamed brace-expansion@1.1.6
+104 verbose addNamed "1.1.6" is a plain semver version for brace-expansion
+105 silly cache afterAdd brace-expansion@1.1.6
+106 verbose afterAdd /home/vagrant/.npm/brace-expansion/1.1.6/package/package.json not in flight; writing
+107 verbose correctMkdir /home/vagrant/.npm correctMkdir not in flight; initializing
+108 verbose afterAdd /home/vagrant/.npm/brace-expansion/1.1.6/package/package.json written
+109 silly fetchNamedPackageData balanced-match
+110 silly mapToRegistry name balanced-match
+111 silly mapToRegistry using default registry
+112 silly mapToRegistry registry https://registry.npmjs.org/
+113 silly mapToRegistry data Result {
+113 silly mapToRegistry   raw: 'balanced-match',
+113 silly mapToRegistry   scope: null,
+113 silly mapToRegistry   name: 'balanced-match',
+113 silly mapToRegistry   rawSpec: '',
+113 silly mapToRegistry   spec: 'latest',
+113 silly mapToRegistry   type: 'tag' }
+114 silly mapToRegistry uri https://registry.npmjs.org/balanced-match
+115 silly fetchNamedPackageData concat-map
+116 silly mapToRegistry name concat-map
+117 silly mapToRegistry using default registry
+118 silly mapToRegistry registry https://registry.npmjs.org/
+119 silly mapToRegistry data Result {
+119 silly mapToRegistry   raw: 'concat-map',
+119 silly mapToRegistry   scope: null,
+119 silly mapToRegistry   name: 'concat-map',
+119 silly mapToRegistry   rawSpec: '',
+119 silly mapToRegistry   spec: 'latest',
+119 silly mapToRegistry   type: 'tag' }
+120 silly mapToRegistry uri https://registry.npmjs.org/concat-map
+121 verbose request uri https://registry.npmjs.org/balanced-match
+122 verbose request no auth needed
+123 info attempt registry request try #1 at 3:46:59 AM
+124 verbose etag "F15USL4EKTBR2S3SNHJ3NM0EX"
+125 http request GET https://registry.npmjs.org/balanced-match
+126 verbose request uri https://registry.npmjs.org/concat-map
+127 verbose request no auth needed
+128 info attempt registry request try #1 at 3:46:59 AM
+129 verbose etag "66LI2B4AH1989LYDFSL4P944A"
+130 http request GET https://registry.npmjs.org/concat-map
+131 http 304 https://registry.npmjs.org/balanced-match
+132 verbose headers { date: 'Sat, 12 Nov 2016 03:51:07 GMT',
+132 verbose headers   via: '1.1 varnish',
+132 verbose headers   'cache-control': 'max-age=300',
+132 verbose headers   etag: '"F15USL4EKTBR2S3SNHJ3NM0EX"',
+132 verbose headers   age: '215',
+132 verbose headers   connection: 'keep-alive',
+132 verbose headers   'x-served-by': 'cache-dfw1833-DFW',
+132 verbose headers   'x-cache': 'HIT',
+132 verbose headers   'x-cache-hits': '7',
+132 verbose headers   'x-timer': 'S1478922667.242149,VS0,VE0',
+132 verbose headers   vary: 'Accept-Encoding' }
+133 silly get cb [ 304,
+133 silly get   { date: 'Sat, 12 Nov 2016 03:51:07 GMT',
+133 silly get     via: '1.1 varnish',
+133 silly get     'cache-control': 'max-age=300',
+133 silly get     etag: '"F15USL4EKTBR2S3SNHJ3NM0EX"',
+133 silly get     age: '215',
+133 silly get     connection: 'keep-alive',
+133 silly get     'x-served-by': 'cache-dfw1833-DFW',
+133 silly get     'x-cache': 'HIT',
+133 silly get     'x-cache-hits': '7',
+133 silly get     'x-timer': 'S1478922667.242149,VS0,VE0',
+133 silly get     vary: 'Accept-Encoding' } ]
+134 verbose etag https://registry.npmjs.org/balanced-match from cache
+135 verbose get saving balanced-match to /home/vagrant/.npm/registry.npmjs.org/balanced-match/.cache.json
+136 verbose correctMkdir /home/vagrant/.npm correctMkdir not in flight; initializing
+137 silly resolveWithNewModule balanced-match@0.4.2 checking installable status
+138 silly cache add args [ 'balanced-match@^0.4.1', null ]
+139 verbose cache add spec balanced-match@^0.4.1
+140 silly cache add parsed spec Result {
+140 silly cache add   raw: 'balanced-match@^0.4.1',
+140 silly cache add   scope: null,
+140 silly cache add   name: 'balanced-match',
+140 silly cache add   rawSpec: '^0.4.1',
+140 silly cache add   spec: '>=0.4.1 <0.5.0',
+140 silly cache add   type: 'range' }
+141 silly addNamed balanced-match@>=0.4.1 <0.5.0
+142 verbose addNamed ">=0.4.1 <0.5.0" is a valid semver range for balanced-match
+143 silly addNameRange { name: 'balanced-match',
+143 silly addNameRange   range: '>=0.4.1 <0.5.0',
+143 silly addNameRange   hasData: false }
+144 silly mapToRegistry name balanced-match
+145 silly mapToRegistry using default registry
+146 silly mapToRegistry registry https://registry.npmjs.org/
+147 silly mapToRegistry data Result {
+147 silly mapToRegistry   raw: 'balanced-match',
+147 silly mapToRegistry   scope: null,
+147 silly mapToRegistry   name: 'balanced-match',
+147 silly mapToRegistry   rawSpec: '',
+147 silly mapToRegistry   spec: 'latest',
+147 silly mapToRegistry   type: 'tag' }
+148 silly mapToRegistry uri https://registry.npmjs.org/balanced-match
+149 verbose addNameRange registry:https://registry.npmjs.org/balanced-match not in flight; fetching
+150 verbose get https://registry.npmjs.org/balanced-match not expired, no request
+151 silly addNameRange number 2 { name: 'balanced-match',
+151 silly addNameRange   range: '>=0.4.1 <0.5.0',
+151 silly addNameRange   hasData: true }
+152 silly addNameRange versions [ 'balanced-match',
+152 silly addNameRange   [ '0.0.0',
+152 silly addNameRange     '0.0.1',
+152 silly addNameRange     '0.1.0',
+152 silly addNameRange     '0.2.0',
+152 silly addNameRange     '0.2.1',
+152 silly addNameRange     '0.3.0',
+152 silly addNameRange     '0.4.0',
+152 silly addNameRange     '0.4.1',
+152 silly addNameRange     '0.4.2' ] ]
+153 silly addNamed balanced-match@0.4.2
+154 verbose addNamed "0.4.2" is a plain semver version for balanced-match
+155 silly cache afterAdd balanced-match@0.4.2
+156 verbose afterAdd /home/vagrant/.npm/balanced-match/0.4.2/package/package.json not in flight; writing
+157 verbose correctMkdir /home/vagrant/.npm correctMkdir not in flight; initializing
+158 verbose afterAdd /home/vagrant/.npm/balanced-match/0.4.2/package/package.json written
+159 http 304 https://registry.npmjs.org/concat-map
+160 verbose headers { date: 'Sat, 12 Nov 2016 03:51:07 GMT',
+160 verbose headers   via: '1.1 varnish',
+160 verbose headers   'cache-control': 'max-age=300',
+160 verbose headers   etag: '"66LI2B4AH1989LYDFSL4P944A"',
+160 verbose headers   age: '86',
+160 verbose headers   connection: 'keep-alive',
+160 verbose headers   'x-served-by': 'cache-dfw1839-DFW',
+160 verbose headers   'x-cache': 'HIT',
+160 verbose headers   'x-cache-hits': '1',
+160 verbose headers   'x-timer': 'S1478922667.309075,VS0,VE0',
+160 verbose headers   vary: 'Accept-Encoding' }
+161 silly get cb [ 304,
+161 silly get   { date: 'Sat, 12 Nov 2016 03:51:07 GMT',
+161 silly get     via: '1.1 varnish',
+161 silly get     'cache-control': 'max-age=300',
+161 silly get     etag: '"66LI2B4AH1989LYDFSL4P944A"',
+161 silly get     age: '86',
+161 silly get     connection: 'keep-alive',
+161 silly get     'x-served-by': 'cache-dfw1839-DFW',
+161 silly get     'x-cache': 'HIT',
+161 silly get     'x-cache-hits': '1',
+161 silly get     'x-timer': 'S1478922667.309075,VS0,VE0',
+161 silly get     vary: 'Accept-Encoding' } ]
+162 verbose etag https://registry.npmjs.org/concat-map from cache
+163 verbose get saving concat-map to /home/vagrant/.npm/registry.npmjs.org/concat-map/.cache.json
+164 verbose correctMkdir /home/vagrant/.npm correctMkdir not in flight; initializing
+165 silly resolveWithNewModule concat-map@0.0.1 checking installable status
+166 silly cache add args [ 'concat-map@0.0.1', null ]
+167 verbose cache add spec concat-map@0.0.1
+168 silly cache add parsed spec Result {
+168 silly cache add   raw: 'concat-map@0.0.1',
+168 silly cache add   scope: null,
+168 silly cache add   name: 'concat-map',
+168 silly cache add   rawSpec: '0.0.1',
+168 silly cache add   spec: '0.0.1',
+168 silly cache add   type: 'version' }
+169 silly addNamed concat-map@0.0.1
+170 verbose addNamed "0.0.1" is a plain semver version for concat-map
+171 silly mapToRegistry name concat-map
+172 silly mapToRegistry using default registry
+173 silly mapToRegistry registry https://registry.npmjs.org/
+174 silly mapToRegistry data Result {
+174 silly mapToRegistry   raw: 'concat-map',
+174 silly mapToRegistry   scope: null,
+174 silly mapToRegistry   name: 'concat-map',
+174 silly mapToRegistry   rawSpec: '',
+174 silly mapToRegistry   spec: 'latest',
+174 silly mapToRegistry   type: 'tag' }
+175 silly mapToRegistry uri https://registry.npmjs.org/concat-map
+176 verbose addNameVersion registry:https://registry.npmjs.org/concat-map not in flight; fetching
+177 verbose get https://registry.npmjs.org/concat-map not expired, no request
+178 silly cache afterAdd concat-map@0.0.1
+179 verbose afterAdd /home/vagrant/.npm/concat-map/0.0.1/package/package.json not in flight; writing
+180 verbose correctMkdir /home/vagrant/.npm correctMkdir not in flight; initializing
+181 verbose afterAdd /home/vagrant/.npm/concat-map/0.0.1/package/package.json written
+182 silly loadAllDepsIntoIdealTree Finishing
+183 silly idealTree:prePrune lib
+183 silly idealTree:prePrune └─┬ minimatch@3.0.2
+183 silly idealTree:prePrune   ├── balanced-match@0.4.2
+183 silly idealTree:prePrune   ├── brace-expansion@1.1.6
+183 silly idealTree:prePrune   └── concat-map@0.0.1
+184 silly loadIdealTree Finishing
+185 silly currentTree lib
+186 silly idealTree lib
+186 silly idealTree └─┬ minimatch@3.0.2
+186 silly idealTree   ├── balanced-match@0.4.2
+186 silly idealTree   ├── brace-expansion@1.1.6
+186 silly idealTree   └── concat-map@0.0.1
+187 silly generateActionsToTake Starting
+188 silly install generateActionsToTake
+189 warn checkPermissions Missing write access to /usr/lib/node_modules
+190 silly rollbackFailedOptional Starting
+191 silly rollbackFailedOptional Finishing
+192 silly runTopLevelLifecycles Starting
+193 silly runTopLevelLifecycles Finishing
+194 silly install printInstalled
+195 verbose stack Error: EACCES: permission denied, access '/usr/lib/node_modules'
+195 verbose stack     at Error (native)
+196 verbose cwd /home/vagrant/Code/portal.app
+197 error Linux 4.4.0-22-generic
+198 error argv "/usr/bin/nodejs" "/usr/bin/npm" "install" "-g" "minimatch@3.0.2"
+199 error node v5.12.0
+200 error npm  v3.8.6
+201 error path /usr/lib/node_modules
+202 error code EACCES
+203 error errno -13
+204 error syscall access
+205 error Error: EACCES: permission denied, access '/usr/lib/node_modules'
+205 error     at Error (native)
+205 error  { [Error: EACCES: permission denied, access '/usr/lib/node_modules']
+205 error   errno: -13,
+205 error   code: 'EACCES',
+205 error   syscall: 'access',
+205 error   path: '/usr/lib/node_modules' }
+206 error Please try running this command again as root/Administrator.
+207 verbose exit [ -13, true ]

@@ -1,0 +1,20 @@
+//Notes on using Eloquent
+
+//how to make a controller
+php artisan make:controller CardsController
+
+
+//how to create model using 'Card' example
+php artisan make:model Card
+    -or-
+php artisan make:model Card -m (makes new migration for model)
+
+//how to include class file: get namesapce of file, and include by using 'use'
+use App\Card; <--- in the app/Card.php file, you will find the namespace defined as 'App'
+
+//how to access all objects from db
+$cards = Card::all();
+
+//--------make sure to pass php function compact a string of array name
+$cards = Card::all();
+compact('cards'); <------creates variables of all elements

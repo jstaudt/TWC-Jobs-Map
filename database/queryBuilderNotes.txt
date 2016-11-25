@@ -1,0 +1,20 @@
+//Query builder commands via php artisan tinker on command line
+
+//create migration
+    step 1:
+        php artisan make:migration create_cards_table --create=cards
+    step 2:
+        php artisan migrate
+
+
+//insert record
+DB::table('cards')->insert(['title' => 'My New Card', 'created_at' => new DateTime, 'updated_at' => new DateTime]);
+
+//get all records
+DB::table('cards')->get();
+
+//select statement with where clause, limit first record
+DB::table('cards')->get()->where('title', 'My New Card')->first();
+
+//delete query with where clause
+DB::table('cards')->where('title', 'My New Card')->delete();

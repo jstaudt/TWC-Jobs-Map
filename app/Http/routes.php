@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','PagesController@home');
+
+Route::get('/about','PagesController@about');
+
+Route::get('cards','CardsController@index');
+
+//when url is dynamic {value} is denoted in curly braces
+Route::get('cards/{card}','CardsController@show');
