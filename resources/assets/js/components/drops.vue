@@ -169,11 +169,9 @@ export default {
     watch: {
         where: {
             handler: function(val,oldVal) {
-                var counter = 0;
-                this.refine = false;
-                //filteredFields need to be wiped on where change (arrays, input values)
+                let counter = 0;
 
-                for(var prop in val) {
+                for(let prop in val) {
                     if (!val[prop].length) continue;
                     if (typeof val[prop] != 'undefined') counter ++;
                 }
@@ -186,7 +184,8 @@ export default {
 
     methods: {
         processDataSource : function() {
-            for(var prop in this.fields) {
+            for(let prop in this.fields) {
+
                 //loop through this.props, and pass values to corresponding fields
                 for(let value of this[prop]) {
                     this.fields[prop].push(value[prop]);
@@ -195,22 +194,9 @@ export default {
         },
 
         loadModal: function (id) {
-            this.modal.job_title = this.jobs[id].job_title;
-            this.modal.email = this.jobs[id].email;
-            this.modal.address = this.jobs[id].address;
-            this.modal.employer = this.jobs[id].employer;
-            this.modal.email = this.jobs[id].email;
-            this.modal.assigned_staff = this.jobs[id].assigned_staff;
-            this.modal.job_description = this.jobs[id].job_description;
-            this.modal.link = this.jobs[id].link;
-            this.modal.id = this.jobs[id].id;
-            this.modal.city = this.jobs[id].city;
-            this.modal.state = this.jobs[id].state;
-            this.modal.zip = this.jobs[id].zip;
-            this.modal.entry_level = this.jobs[id].entry_level;
-            this.modal.occupational_category = this.jobs[id].occupational_category;
-            this.modal.openings = this.jobs[id].openings;
-            this.modal.work_week_code = this.jobs[id].work_week_code;
+            for(let prop in this.modal) {
+                this.modal[prop] = this.jobs[id][prop];
+            }
         },
 
         getJobs : function (where) {
@@ -220,21 +206,19 @@ export default {
             this.$http.post('/index', {where:where}).then((response)=>{
                 this.jobs = response.body.jobs;
                 this.geocodes = response.body.geocodes;
-                this.refine = true;
 
-                var infowindow = new google.maps.InfoWindow({
+                const infowindow = new google.maps.InfoWindow({
                     maxWidth: 200
                 });
-                var marker;
+                let marker;
                
                 this.clearMarkers();
 
                 for(let prop in this.jobs) {
                     if(this.geocodes.hasOwnProperty(this.jobs[prop].id)) {
-                        var that = this;
-                        var code = this.geocodes[this.jobs[prop].id];
-                        //this.panTo.lat = code.lat;
-                        //this.panTo.lng = code.lng;
+                        const that = this;
+                        const code = this.geocodes[this.jobs[prop].id];
+                        
                         marker = new google.maps.Marker({
                             position: new google.maps.LatLng(code.lat, code.lng),
                             map: that.map
@@ -262,16 +246,16 @@ export default {
         },
 
         clearMarkers: function () {
-            var map = this.map;
-            var markers = this.markers;
-            for(var i=0; i < this.markers.length; i++) {
+            const map = this.map;
+            const markers = this.markers;
+            for(let i=0; i < this.markers.length; i++) {
                 markers[i].setMap(null);
             }
             this.markers = [];
         },
 
         initMap: function () {
-            var that = this;
+            const that = this;
             
             //here until timing ironed out, initialize fancy checkbox
             $('#entry-level').checkboxpicker();
@@ -291,7 +275,7 @@ export default {
             };
 
             if (navigator.geolocation) {
-                var that = this;
+                const that = this;
                 navigator.geolocation.getCurrentPosition(function (position) {
                     const initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
                     that.map.setCenter(initialLocation);

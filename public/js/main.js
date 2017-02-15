@@ -12974,8 +12974,6 @@ exports.default = {
         where: {
             handler: function handler(val, oldVal) {
                 var counter = 0;
-                this.refine = false;
-                //filteredFields need to be wiped on where change (arrays, input values)
 
                 for (var prop in val) {
                     if (!val[prop].length) continue;
@@ -12991,6 +12989,7 @@ exports.default = {
     methods: {
         processDataSource: function processDataSource() {
             for (var prop in this.fields) {
+
                 //loop through this.props, and pass values to corresponding fields
                 var _iteratorNormalCompletion = true;
                 var _didIteratorError = false;
@@ -13020,22 +13019,9 @@ exports.default = {
         },
 
         loadModal: function loadModal(id) {
-            this.modal.job_title = this.jobs[id].job_title;
-            this.modal.email = this.jobs[id].email;
-            this.modal.address = this.jobs[id].address;
-            this.modal.employer = this.jobs[id].employer;
-            this.modal.email = this.jobs[id].email;
-            this.modal.assigned_staff = this.jobs[id].assigned_staff;
-            this.modal.job_description = this.jobs[id].job_description;
-            this.modal.link = this.jobs[id].link;
-            this.modal.id = this.jobs[id].id;
-            this.modal.city = this.jobs[id].city;
-            this.modal.state = this.jobs[id].state;
-            this.modal.zip = this.jobs[id].zip;
-            this.modal.entry_level = this.jobs[id].entry_level;
-            this.modal.occupational_category = this.jobs[id].occupational_category;
-            this.modal.openings = this.jobs[id].openings;
-            this.modal.work_week_code = this.jobs[id].work_week_code;
+            for (var prop in this.modal) {
+                this.modal[prop] = this.jobs[id][prop];
+            }
         },
 
         getJobs: function getJobs(where) {
@@ -13047,36 +13033,36 @@ exports.default = {
             this.$http.post('/index', { where: where }).then(function (response) {
                 _this.jobs = response.body.jobs;
                 _this.geocodes = response.body.geocodes;
-                _this.refine = true;
 
                 var infowindow = new google.maps.InfoWindow({
                     maxWidth: 200
                 });
-                var marker;
+                var marker = void 0;
 
                 _this.clearMarkers();
 
                 for (var prop in _this.jobs) {
                     if (_this.geocodes.hasOwnProperty(_this.jobs[prop].id)) {
-                        var that = _this;
-                        var code = _this.geocodes[_this.jobs[prop].id];
-                        //this.panTo.lat = code.lat;
-                        //this.panTo.lng = code.lng;
-                        marker = new google.maps.Marker({
-                            position: new google.maps.LatLng(code.lat, code.lng),
-                            map: that.map
-                        });
+                        (function () {
+                            var that = _this;
+                            var code = _this.geocodes[_this.jobs[prop].id];
 
-                        _this.markers.push(marker);
+                            marker = new google.maps.Marker({
+                                position: new google.maps.LatLng(code.lat, code.lng),
+                                map: that.map
+                            });
 
-                        google.maps.event.addListener(marker, 'click', function (marker, prop) {
-                            return function () {
-                                that.loadModal(prop);
-                                $('#fsModal').modal('show');
-                                // infowindow.setContent("<h1>Executive Chef</h1>");
-                                // infowindow.open(that.map, marker);
-                            };
-                        }(marker, prop));
+                            _this.markers.push(marker);
+
+                            google.maps.event.addListener(marker, 'click', function (marker, prop) {
+                                return function () {
+                                    that.loadModal(prop);
+                                    $('#fsModal').modal('show');
+                                    // infowindow.setContent("<h1>Executive Chef</h1>");
+                                    // infowindow.open(that.map, marker);
+                                };
+                            }(marker, prop));
+                        })();
                     }
                 }
 
@@ -13097,6 +13083,8 @@ exports.default = {
         },
 
         initMap: function initMap() {
+            var _this2 = this;
+
             var that = this;
 
             //here until timing ironed out, initialize fancy checkbox
@@ -13117,15 +13105,17 @@ exports.default = {
             };
 
             if (navigator.geolocation) {
-                var that = this;
-                navigator.geolocation.getCurrentPosition(function (position) {
-                    var initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-                    that.map.setCenter(initialLocation);
+                (function () {
+                    var that = _this2;
+                    navigator.geolocation.getCurrentPosition(function (position) {
+                        var initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                        that.map.setCenter(initialLocation);
 
-                    for (var prop in this.jobs) {
-                        if (this.geocodes.hasOwnProperty(this.jobs[prop].id)) console.log(this.job);
-                    }
-                }, error);
+                        for (var prop in this.jobs) {
+                            if (this.geocodes.hasOwnProperty(this.jobs[prop].id)) console.log(this.job);
+                        }
+                    }, error);
+                })();
             }
         }
     }
