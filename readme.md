@@ -1,1 +1,1 @@
-TWC Jobs Map is an application built with Laravel and Vue.js that displays the locations of jobs currently available in the state's database.  
+TWC Jobs Map is an application built with Laravel, Vue.js, and the Google Maps API.  Job records from the Texas Workforce Commission are imported to a MySQL database, and once geocodes are obtained for each unique job the map window can be populated.  
