@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div>
-                <h1>Welcome to Texas Jobs Portalsssssxxx</h1>
+                <h1>Welcome to Texas Jobs Portal</h1>
             </div>
             <div>
                 <div>
