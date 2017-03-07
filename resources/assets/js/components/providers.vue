@@ -37,23 +37,17 @@
 
                         <!-- header -->
                         <div class="modal-header">
-                            <h3 id="myModalLabel" class="modal-title">{{modal.job_title}}</h3>
+                            <h3 id="myModalLabel" class="modal-title">{{modal.provider_name}}</h3>
                         </div>
                         <!-- header -->
                           
                         <!-- body -->
                         <div class="modal-body">
                             <h5>Address:</h5>
-
                             <p>{{modal.address}}</p>
                             <p><span>{{modal.city}}, </span><span>{{modal.state}} </span><span>{{modal.zip}}</span></p>
 
-                            <h5>Provider Name</h5>
-
-                            <p>{{modal.provider_name}}</p>
-
                             <h5>Phone Number</h5>
-
                             <p>{{modal.phone_number}}</p>
                         </div>
                           <!-- body -->
@@ -139,8 +133,8 @@ export default {
             let modal = isJob ? this.modal : this.providerModal;
             let obj = isJob ? this.jobs : this.providers;
 
-            for(let prop in modal) {
-                modal[prop] = obj[id][prop];
+            for(let prop in this.modal) {
+                this.modal[prop] = this.providers[id][prop];
             }
         },
 
