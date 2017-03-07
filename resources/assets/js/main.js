@@ -1,22 +1,28 @@
 //browserify entry point
 var Vue = require('vue');
 var VueResource = require('vue-resource');
-
-//necessary to pull in vue-resource
-//window.Vue = Vue;
 Vue.use(VueResource);
 Vue.http.headers.common['X-CSRF-TOKEN'] = document.querySelector('#token').getAttribute('content');
 
-import drops from './components/drops.vue';
+import jobs from './components/jobs.vue';
+import providers from './components/providers.vue';
 
+var mixin = {
+    created: function () {
+        this.hello()
+    },
+    methods: {
+        hello: function () {
+            console.log('hello from mixin!')
+        }
+    }
+}
 var jobsApp = window.jobsApp = new Vue({
     el: 'body',
 
-    components: {drops},
+    mixins: [mixin],
 
-    data: {
-        test: "5151"
-    },
+    components: {jobs,providers},
 
     methods: {
         initMap: function() {

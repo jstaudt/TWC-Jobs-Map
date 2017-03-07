@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -10,16 +9,13 @@ use App\Provider;
 use App\Curl;
 use Illuminate\Support\Facades\DB;
 
-class PagesController extends Controller
+class ProvidersController extends Controller
 {
-    public function home(){
-        $category = Job::distinct()->get(['occupational_category AS category']);
+    public function home() {
 
         $facility = Provider::distinct()->get(['facility']);
-
-        $vars = array('category'=>$category,'facility'=>$facility);
        
-        return view('c2.jobs',compact('vars'));
+        return view('c2.providers',compact('facility'));
     }
 
     public function index(Request $request) {
@@ -66,4 +62,5 @@ class PagesController extends Controller
             return compact('providers','geocodes');
         }
     }
+    
 }

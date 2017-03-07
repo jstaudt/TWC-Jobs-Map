@@ -3,14 +3,18 @@
     <div class="container">
         <div class="row">
             <div>
-                <h1>Welcome to Texas Jobs Portal</h1>
+                <h1 class="mapTitle">C2 Jobs Map</h1>
             </div>
-            <div>
+            <div v-show="!showProviders">
+                <label v-show="this.where.entry_level=='Yes'" for="entry_level">Entry Level On</label>
+                <label v-show="this.where.entry_level=='No'" for="entry_level">Entry Level Off</label>
                 <div>
-                    <label for="entry_level">Entry Level</label>
-                    <div>
+                    <label class="switch job-toggle">
                         <input id="entry-level" type="checkbox" name="entry_level">
-                    </div>
+                        <div class="slider round"></div>
+                    </label>
+                </div>
+                <div class="categorySelect">
                     <label for="occupational_category">Choose a Category</label>
                     <div class="select-style">
                         <select id="category" v-model="where.occupational_category" name="occupational_category">
@@ -25,7 +29,7 @@
             <div id="map" class=""></div>
 
             <!-- modal -->
-            <div id="fsModal"
+            <div id="jobModal"
                  class="modal animated fade"
                  tabindex="-1"
                  role="dialog"
@@ -40,46 +44,46 @@
 
                         <!-- header -->
                         <div class="modal-header">
-                            <h1 id="myModalLabel" class="modal-title">{{modal.job_title}}</h1>
+                            <h3 id="myModalLabel" class="modal-title">{{modal.job_title}}</h3>
                         </div>
                         <!-- header -->
                           
                         <!-- body -->
                         <div class="modal-body">
-                            <h3>Address:</h3>
+                            <h5>Address:</h5>
 
                             <p>{{modal.address}}</p>
                             <p><span>{{modal.city}}, </span><span>{{modal.state}} </span><span>{{modal.zip}}</span></p>
 
-                            <h3>Posting ID:</h3>
+                            <h5>Posting ID:</h5>
 
                             <p>{{modal.id}}</p>
 
-                            <h3>Entry Level:</h3>
+                            <h5>Entry Level:</h5>
 
                             <p>{{modal.entry_level}}</p>
 
-                            <h3>Occupatinal Category:</h3>
+                            <h5>Occupatinal Category:</h5>
 
                             <p>{{modal.occupational_category}}</p>
 
-                            <h3>Openings:</h3>
+                            <h5>Openings:</h5>
 
                             <p>{{modal.openings}}</p>
 
-                            <h3>Work Week Code:</h3>
+                            <h5>Work Week Code:</h5>
 
                             <p>{{modal.work_week_code}}</p>
 
-                            <h3>Assigned Staff Name:</h3>
+                            <h5>Assigned Staff Name:</h5>
 
                             <p>{{modal.assigned_staff}}</p>
 
-                            <h3>Email:</h3>
+                            <h5>Email:</h5>
 
                             <p><a href="mailto:{{modal.email}}">{{modal.email}}</a></p>
 
-                            <h3>Actions:</h3>
+                            <h5>Actions:</h5>
                             <a target="_blank" role="button" class="btn btn-primary apply" href="{{modal.link}}">Apply Now</a>
                             <a role="button" class="btn btn-primary apply" href="mailto:?to=&subject={{modal.job_title}}&body=Address:%0D%0A{{modal.address}}%0D%0A{{modal.city}} {{modal.state}} {{modal.zip}}%0D%0A%0D%0APosting ID:%0D%0A{{modal.id}}%0D%0A%0D%0AEntry Level:%0D%0A{{modal.entry_level}}%0D%0A%0D%0AOccupational Category:%0D%0A{{modal.occupational_category}}%0D%0A%0D%0AOpenings:%0D%0A{{modal.openings}}%0D%0A%0D%0AWork Week Code:%0D%0A{{modal.work_week_code}}%0D%0A%0D%0AAssigned Staff Name:%0D%0A{{modal.assigned_staff}}%0D%0A%0D%0AEmail:%0D%0A{{modal.email}}%0D%0A%0D%0ALink:%0D%0A{{encodeURIComponent(modal.link)}}">Email This Job</a>
 
@@ -109,7 +113,7 @@
 import mapStyle from './mapStyle.vue';
 
 export default {
-    props: ['category'],
+    props: ['category','facility'],
 
     events: {
         googleMapsLoaded: function() {
@@ -185,7 +189,7 @@ export default {
     methods: {
         processDataSource : function() {
             for(let prop in this.fields) {
-
+                if(typeof this[prop] == 'undefined') continue;
                 //loop through this.props, and pass values to corresponding fields
                 for(let value of this[prop]) {
                     this.fields[prop].push(value[prop]);
@@ -193,17 +197,20 @@ export default {
             }
         },
 
-        loadModal: function (id) {
-            for(let prop in this.modal) {
-                this.modal[prop] = this.jobs[id][prop];
+        loadModal: function (id,isJob) {
+            let modal = isJob ? this.modal : this.providerModal;
+            let obj = isJob ? this.jobs : this.providers;
+
+            for(let prop in modal) {
+                modal[prop] = obj[id][prop];
             }
         },
 
         getJobs : function (where) {
-            $(':checkbox').checkboxpicker().prop('disabled',true);
+            $(':checkbox').prop('disabled',true);
             $('#category').prop('disabled',true);
 
-            this.$http.post('/index', {where:where}).then((response)=>{
+            this.$http.post('/index', {where:where, table:"jobs"}).then((response)=>{
                 this.jobs = response.body.jobs;
                 this.geocodes = response.body.geocodes;
 
@@ -228,8 +235,8 @@ export default {
 
                         google.maps.event.addListener(marker, 'click', (function(marker, prop) {
                             return function() {
-                                that.loadModal(prop);
-                                $('#fsModal').modal('show');
+                                that.loadModal(prop,true);
+                                $('#jobModal').modal('show');
                                 // infowindow.setContent("<h1>Executive Chef</h1>");
                                 // infowindow.open(that.map, marker);
                             }
@@ -237,8 +244,8 @@ export default {
                     }
                 }
 
-                $(':checkbox').checkboxpicker().prop('disabled',false);
-                $('#category').prop('disabled',false);
+            $(':checkbox').prop('disabled',false);
+            $('#category').prop('disabled',false);
                 
             }, (response)=>{
                 //unsuccessful
@@ -258,7 +265,7 @@ export default {
             const that = this;
             
             //here until timing ironed out, initialize fancy checkbox
-            $('#entry-level').checkboxpicker();
+            
             $('#entry-level').on('change', function() {
                 that.where.entry_level = this.checked ? "Yes" : "No";
             });
@@ -279,10 +286,6 @@ export default {
                 navigator.geolocation.getCurrentPosition(function (position) {
                     const initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
                     that.map.setCenter(initialLocation);
-
-                    for(let prop in this.jobs) {
-                        if(this.geocodes.hasOwnProperty(this.jobs[prop].id))console.log(this.job);
-                    }
                 },error);
             }
         }
@@ -290,81 +293,5 @@ export default {
 }
 </script>
 <style>
-input {
-    font-size: 16px;
-}
-
-#map {
-    height: 400px;
-    width: 100%;
-    margin-top: 10px;
-    margin-bottom: 30px;
-}
-
-@media only screen and (min-device-width: 320px) and (max-device-width: 736px) {
-    select:focus,
-    input:focus {
-        font-size: 16px;
-        background: #eee;
-    }
-
-    .container {
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-
-    .select-style {
-        padding: 0;
-        margin: 0;
-        border: 1px solid #ccc;
-        width: 90%;
-        border-radius: 3px;
-        overflow: hidden;
-        background-color: #fff;
-    }
-
-    .select-style select {
-        padding: 5px 8px;
-        width: 130%;
-        border: none;
-        box-shadow: none;
-        background-color: transparent;
-        background-image: none;
-        -webkit-appearance: none;
-           -moz-appearance: none;
-                appearance: none;
-    }
-
-    .select-style select:focus {
-        outline: none;
-    }
-}
-
-@media screen and (min-device-width: 1200px) { 
-    .select-style {
-        padding: 0;
-        margin: 0;
-        border: 1px solid #ccc;
-        width: 50%;
-        border-radius: 3px;
-        overflow: hidden;
-        background-color: #fff;
-    }
-
-    .select-style select {
-        padding: 5px 8px;
-        width: 130%;
-        border: none;
-        box-shadow: none;
-        background-color: transparent;
-        background-image: none;
-        -webkit-appearance: none;
-           -moz-appearance: none;
-                appearance: none;
-    }
-
-    .select-style select:focus {
-        outline: none;
-    }
-}    
+    
 </style>
