@@ -5,6 +5,7 @@ Vue.use(VueResource);
 Vue.http.headers.common['X-CSRF-TOKEN'] = document.querySelector('#token').getAttribute('content');
 
 import jobs from './components/jobs.vue';
+import home from './components/home.vue';
 import providers from './components/providers.vue';
 
 var mixin = {
@@ -22,7 +23,7 @@ var jobsApp = window.jobsApp = new Vue({
 
     mixins: [mixin],
 
-    components: {jobs,providers},
+    components: {jobs,providers,home},
 
     methods: {
         initMap: function() {
