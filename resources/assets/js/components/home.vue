@@ -27,7 +27,7 @@
             <div class="row">
                 <div class="col-lg-6 col-lg-offset-3">
                     <h4>COMING SOON</h4>
-                    <h1>MAPEXCEL</h1>
+                    <h2>MAPEXCEL</h2>
                     <h4>INTERACTIVE MAPS.  MOBILE FRIENDLY.  NO ADS.</h4>
                 </div>
             </div>
@@ -42,7 +42,7 @@
                 
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 gallery">
-                <a href="/c2/jobs" target="_blank"><img src="img/portfolio/oldMap.jpg" class="img-responsive"></a>
+                <a href="/c2/jobs" target="_blank"><img src="img/portfolio/oldMap.jpg" class="img-responsive noselect"></a>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 gallery">
                 
@@ -227,6 +227,13 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
 }
 
+#headerwrap h2 {
+    color:#ffffff;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    font-weight: bold;
+}
+
 #headerwrap h4 {
     font-weight: 400;
     color: #ffffff
@@ -241,10 +248,6 @@ h1, h2, h3, h4, h5, h6 {
 #social i {
     font-size: 40px;
     color: #4a4a4a
-}
-
-#social i:hover {
-    color: #1abc9c
 }
 
 #footerwrap {
@@ -314,15 +317,12 @@ h1, h2, h3, h4, h5, h6 {
     background-size: cover;
 }
 
-
-
+.noselect {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
 
 /* Gallery */
 .gallery {
     margin-top: 30px;
-}
-
-.gallery img:hover {
-    opacity: 0.4;
 }
 </style>
