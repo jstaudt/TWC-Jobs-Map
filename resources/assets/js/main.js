@@ -8,20 +8,8 @@ import jobs from './components/jobs.vue';
 import home from './components/home.vue';
 import providers from './components/providers.vue';
 
-var mixin = {
-    created: function () {
-        this.hello()
-    },
-    methods: {
-        hello: function () {
-            console.log('hello from mixin!')
-        }
-    }
-}
 var jobsApp = window.jobsApp = new Vue({
     el: 'body',
-
-    mixins: [mixin],
 
     components: {jobs,providers,home},
 

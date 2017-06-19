@@ -217,3 +217,10 @@ export default {
     },
 }
 </script>
+
+<style scoped>
+    body{
+        font-family: sans-serif;
+    }
+
+</style>

@@ -226,13 +226,13 @@
     </section>
 </template>
 
-<style>
+<style scoped>
 /*!
  * Start Bootstrap - Creative v3.3.7+1 (http://startbootstrap.com/template-overviews/creative)
  * Copyright 2013-2016 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
-html,
+/*html,
 body {
   height: 100%;
   width: 100%;
@@ -657,6 +657,6 @@ img::-moz-selection {
 }
 body {
   webkit-tap-highlight-color: #222222;
-}
+}*/
 
 </style>
